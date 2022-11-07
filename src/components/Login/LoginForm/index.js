@@ -1,6 +1,7 @@
 import styles from "./index.module.css";
 
 import { useFormik } from "formik";
+import validationSchema from "./validations";
 
 function LoginForm() {
   const { handleSubmit, handleChange, handleBlur, values, errors, touched } =
@@ -12,7 +13,7 @@ function LoginForm() {
       onSubmit: (values) => {
         console.log(values);
       },
-      //loginValidationSchema TODO
+      validationSchema
     })
 
   return (
@@ -28,7 +29,7 @@ function LoginForm() {
         />
 
         {errors.username && touched.username && (
-          <div className="error">
+          <div className={styles.error}>
             {errors.username}
           </div>
         )}
@@ -45,7 +46,7 @@ function LoginForm() {
         />
 
         {errors.password && touched.password && (
-          <div className="error">
+          <div className={styles.error}>
             {errors.password}
           </div>
         )}
